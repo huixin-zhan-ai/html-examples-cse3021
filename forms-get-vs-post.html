@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Form GET vs POST Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; }
+      section { margin-bottom: 2rem; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; }
+      h2 { margin-top: 0; }
+      code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+      .note { color: #444; font-size: 0.9rem; margin-top: 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Form Submission: GET vs POST</h1>
+    <p>This demo lets you compare how form data is sent using <code>GET</code> and <code>POST</code>.</p>
+
+    <section>
+      <h2>GET method (data appears in the URL)</h2>
+      <form method="get" action="">
+        <label for="name-get">Your Name:</label>
+        <input type="text" id="name-get" name="name" />
+        <br><br>
+        <input type="submit" value="Submit with GET" />
+      </form>
+      <p class="note">After submitting, look at the browser’s address bar. You’ll see something like:<br>
+        <code>?name=Alice</code> appended to the URL.</p>
+    </section>
+
+    <section>
+      <h2>POST method (data hidden from the URL)</h2>
+      <form method="post" action="">
+        <label for="name-post">Your Name:</label>
+        <input type="text" id="name-post" name="name" />
+        <br><br>
+        <input type="submit" value="Submit with POST" />
+      </form>
+      <p class="note">After submitting, the address bar will not change. The data is sent in the request body, invisible to the user.</p>
+    </section>
+
+    <hr>
+    <p><strong>Note:</strong> Since this file is opened locally, the POST request won’t actually process anywhere — but you’ll see the difference in the <em>URL bar</em> between GET (shows data) and POST (doesn’t show data).</p>
+  </body>
+</html>
