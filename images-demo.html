@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML Image Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 2rem; }
+      code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+      figure { margin: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+      figure img { display: block; width: 100%; height: auto; }
+      figcaption { padding: 0.75rem 1rem; font-size: 0.95rem; color: #374151; background: #fafafa; }
+      .note { font-size: 0.95rem; color: #444; }
+      .tip { background: #fff7ed; border-left: 4px solid #f59e0b; padding: 0.75rem 1rem; border-radius: 6px; }
+      hr { margin: 2rem 0; }
+      ul { margin: 0.25rem 0 0.75rem 1.1rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Images in HTML</h1>
+    <p class="note">This page demonstrates <code>&lt;img&gt;</code> with <code>src</code>, <code>alt</code>, sizing via <code>width</code>/<code>height</code> and CSS, relative vs absolute URLs, and using an image as a link.</p>
+
+    <div class="grid">
+      <figure>
+        <img src="assets/logo.svg" alt="Abstract shapes logo: blue circle and green rounded rectangle" width="300" height="180" />
+        <figcaption><strong>Relative path:</strong> <code>src="assets/logo.svg"</code> with <code>alt</code>, and explicit <code>width</code>/<code>height</code> attributes.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="https://picsum.photos/seed/html-demo/600/400" alt="Random illustrative photo from Picsum" style="max-width:100%; height:auto;" />
+        <figcaption><strong>Absolute URL:</strong> <code>src="https://…"</code> and CSS sizing (<code>height:auto</code> keeps aspect ratio).</figcaption>
+      </figure>
+
+      <figure>
+        <a href="https://example.com" target="_blank" rel="noopener">
+          <img src="https://picsum.photos/seed/link/400/260" alt="Click to open example.com in a new tab" />
+        </a>
+        <figcaption><strong>Image as a link:</strong> wrap <code>&lt;img&gt;</code> in <code>&lt;a href="…" target="_blank"&gt;</code>.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='100%' height='100%' fill='%23eef2ff'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='28' fill='%23374151'>Inline data URI image</text></svg>" alt="Inline SVG with text saying Inline data URI image" />
+        <figcaption><strong>Data URI:</strong> embed small images directly in HTML with <code>data:</code> URLs (useful for self-contained demos).</figcaption>
+      </figure>
+    </div>
+
+    <hr />
+
+    <div class="tip">
+      <strong>Accessibility tip:</strong> Always provide meaningful <code>alt</code> text describing the image’s purpose. If an image is purely decorative, you can use <code>alt=""</code>.
+    </div>
+
+    <h2>Key properties</h2>
+    <ul>
+      <li><code>src</code> — where the image comes from (relative or absolute URL).</li>
+      <li><code>alt</code> — text shown to screen readers or if the image fails to load.</li>
+      <li><code>width</code>/<code>height</code> — intrinsic size hints; use CSS for responsiveness.</li>
+    </ul>
+
+    <p class="note">This demo aligns with the slide’s points: <code>&lt;img&gt;</code> is an empty element (no closing tag) and commonly uses <code>src</code>, <code>alt</code>, and sizing attributes.</p>
+  </body>
+</html>

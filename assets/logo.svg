@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="120" viewBox="0 0 200 120">
+  <rect x="0" y="0" width="200" height="120" fill="#f0f4ff"/>
+  <circle cx="60" cy="60" r="35" fill="#4f46e5"/>
+  <rect x="110" y="30" width="70" height="60" rx="8" ry="8" fill="#22c55e"/>
+  <text x="100" y="110" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#111827">Local SVG (relative path)</text>
+</svg>
