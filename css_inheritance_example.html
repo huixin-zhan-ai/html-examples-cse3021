@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Inheritance Example</title>
+  <style>
+    div {
+      color: green;
+      font-family: Arial, sans-serif;
+      border: 2px solid black;
+    }
+    p {
+      border: 1px dashed red;
+    }
+  </style>
+</head>
+<body>
+  <h2>CSS Inheritance Example</h2>
+
+  <div>
+    <p>This paragraph inherits the <strong>color</strong> and <strong>font-family</strong> from the &lt;div&gt;.</p>
+    <span>This span also inherits the color and font.</span>
+    <p style="color: blue;">This paragraph overrides the color with blue.</p>
+  </div>
+
+  <p>This paragraph is outside the div and does not inherit its style.</p>
+</body>
+</html>
