@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Selector Types Example</title>
+  <style>
+    /* Element selector */
+    h1 {
+      color: navy;
+    }
+
+    /* ID selector */
+    #intro {
+      font-size: 20px;
+      color: darkgreen;
+    }
+
+    /* Class selector */
+    .highlight {
+      background-color: yellow;
+    }
+
+    /* Group selector */
+    h2, p {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Descendant selector */
+    div p {
+      color: blue;
+    }
+
+    /* Child selector */
+    div > span {
+      font-weight: bold;
+    }
+
+    /* Adjacent sibling selector */
+    h2 + p {
+      border-top: 2px solid gray;
+    }
+
+    /* General sibling selector */
+    h3 ~ p {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Selector Examples</h1>
+
+  <p id="intro">This paragraph uses an ID selector.</p>
+
+  <p class="highlight">This paragraph uses a class selector.</p>
+
+  <h2>Grouped Selector Example</h2>
+  <p>This paragraph is grouped with h2 in the same style rule.</p>
+
+  <div>
+    <p>This paragraph is a descendant of div.</p>
+    <span>This span is a direct child of div.</span>
+    <div><p>This nested paragraph is still a descendant, not a child.</p></div>
+  </div>
+
+  <h2>Adjacent Sibling Selector</h2>
+  <p>This paragraph comes right after an h2 and gets a border-top.</p>
+
+  <h3>General Sibling Selector</h3>
+  <p>This paragraph is a general sibling of h3 and will be italic.</p>
+  <p>This one too.</p>
+
+</body>
+</html>
