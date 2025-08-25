@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Selectors Example</title>
+  <style>
+    /* Element selector: applies to all <p> elements */
+    p {
+      color: blue;
+      font-size: 18px;
+    }
+
+    /* ID selector: applies only to the element with id="special" */
+    #special {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* Class selector: applies to all elements with class="highlight" */
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h2>CSS Selector Examples</h2>
+
+  <!-- Element selector example -->
+  <p>This is a normal paragraph (element selector makes it blue).</p>
+
+  <!-- ID selector example -->
+  <p id="special">This paragraph is styled with an ID selector (red and bold).</p>
+
+  <!-- Class selector example -->
+  <p class="highlight">This paragraph is styled with a class selector (yellow background).</p>
+
+  <!-- Class selector can be reused -->
+  <h3 class="highlight">This heading also has the highlight class.</h3>
+</body>
+</html>
