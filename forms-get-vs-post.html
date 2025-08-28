@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Form GET vs POST Demo</title>
+    <title>Form GET vs POST Demo + Google Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       body { font-family: Arial, sans-serif; line-height: 1.6; margin: 2rem; }
@@ -39,7 +39,18 @@
       <p class="note">After submitting, the address bar will not change. The data is sent in the request body, invisible to the user.</p>
     </section>
 
+    <section>
+      <h2>Google Form (responses stored in Google Sheets)</h2>
+      <p>This embedded Google Form actually collects responses for you. Unlike the GET/POST demos above, the form is hosted by Google and submissions go straight into your Google account.</p>
+      
+      <!-- Your Google Form embed -->
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfTxT-8H9y6xz1M8tdtCohrxwt3SLfk32rxs4eKBEOVdUMLVg/viewform?embedded=true" 
+              width="640" height="375" frameborder="0" marginheight="0" marginwidth="0">
+        Loading…
+      </iframe>
+    </section>
+
     <hr>
-    <p><strong>Note:</strong> Since this file is opened locally, the POST request won’t actually process anywhere — but you’ll see the difference in the <em>URL bar</em> between GET (shows data) and POST (doesn’t show data).</p>
+    <p><strong>Note:</strong> GET and POST demos won’t store data anywhere unless you add a backend. The Google Form, however, does store responses automatically in your Google Drive.</p>
   </body>
 </html>
