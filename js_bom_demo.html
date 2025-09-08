@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JS Mini Demos — Pages 20–22</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #111834;
+      --ink: #e9efff;
+      --muted: #a7b3d1;
+      --outline: #1e2a56;
+      --accent: #7aa2ff;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020, #0b142a);
+      color: var(--ink);
+    }
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--outline);
+    }
+    h1 { margin: 0; font-size: 22px; }
+    main { padding: 16px; display: grid; gap: 16px; max-width: 1000px; margin: 0 auto; }
+    section {
+      background: var(--panel);
+      border: 1px solid var(--outline);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    h2 { margin: 0 0 8px; font-size: 18px; }
+    p { color: var(--muted); margin: 6px 0 10px; }
+    .stack { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .btn {
+      appearance: none;
+      border: 1px solid var(--outline);
+      background: #0e1d44;
+      color: var(--ink);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn:hover { border-color: var(--accent); }
+    .console {
+      background: #0f1a3a;
+      border: 1px solid var(--outline);
+      border-radius: 10px;
+      padding: 10px;
+      height: 140px;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+    #arena {
+      position: relative;
+      height: 100px;
+      border: 1px dashed var(--outline);
+      border-radius: 10px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    #box {
+      position: absolute;
+      width: 40px; height: 40px;
+      background: var(--accent);
+      border-radius: 8px;
+      left: 0; top: 30px;
+    }
+    label { color: var(--muted); }
+    input[type="number"], input[type="text"] {
+      background: #0e1634;
+      border: 1px solid var(--outline);
+      border-radius: 8px;
+      padding: 6px 8px;
+      color: var(--ink);
+      width: 90px;
+    }
+    .note { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>JS Mini Demos — Page 20 (Animation), 21 (BOM), 22 (Popups & Timers)</h1>
+  </header>
+
+  <main>
+    <!-- Page 20: Animation with setInterval -->
+    <section id="p20">
+      <h2>Page 20 — setInterval Animation</h2>
+      <p>Start and stop a simple animation that moves a box. Adjust speed (ms per tick). This demonstrates <code>setInterval</code> and <code>clearInterval</code>.</p>
+      <div class="stack">
+        <label for="speed">Speed (ms):</label>
+        <input type="number" id="speed" min="10" step="10" value="60" />
+        <button class="btn" id="start">Start</button>
+        <button class="btn" id="stop">Stop</button>
+        <button class="btn" id="reset">Reset</button>
+      </div>
+      <div id="arena"><div id="box"></div></div>
+      <p class="note">Tip: Lower ms = faster movement. The box wraps to the left when reaching the edge.</p>
+    </section>
+
+    <!-- Page 21: BOM (Window, Screen, History) -->
+    <section id="p21">
+      <h2>Page 21 — Browser Object Model (BOM)</h2>
+      <p>Read info from <code>window</code>, <code>screen</code>, and <code>history</code>. Open a new tab/window (depending on browser settings).</p>
+      <div class="stack">
+        <button class="btn" id="winInfo">Show window size</button>
+        <button class="btn" id="screenInfo">Show screen info</button>
+        <button class="btn" id="historyInfo">Show history length</button>
+        <button class="btn" id="openWin">window.open example</button>
+      </div>
+    </section>
+
+    <!-- Page 22: Popups & Timers -->
+    <section id="p22">
+      <h2>Page 22 — Popups & Timers</h2>
+      <p>Demonstrate <code>alert</code>, <code>confirm</code>, <code>prompt</code>, and compare <code>setTimeout</code> vs <code>setInterval</code>.</p>
+      <div class="stack">
+        <button class="btn" id="doAlert">alert()</button>
+        <button class="btn" id="doConfirm">confirm()</button>
+        <button class="btn" id="doPrompt">prompt()</button>
+      </div>
+      <div class="stack" style="margin-top:8px;">
+        <button class="btn" id="timeoutOnce">setTimeout (once)</button>
+        <button class="btn" id="intervalMany">setInterval (repeat)</button>
+        <button class="btn" id="stopInterval">clearInterval</button>
+      </div>
+      <p class="note">Try clicking “setInterval (repeat)” and then “clearInterval”. Observe how the console logs messages repeatedly until stopped.</p>
+    </section>
+
+    <!-- Console -->
+    <section>
+      <h2>In‑Page Console</h2>
+      <p>All demo outputs appear here (no DevTools needed).</p>
+      <div id="console" class="console" aria-live="polite"></div>
+      <div class="stack" style="margin-top:8px;">
+        <button class="btn" id="clearConsole">Clear Console</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Simple console logger
+    const logBox = document.getElementById('console');
+    function log(msg) {
+      const line = document.createElement('div');
+      line.textContent = msg;
+      logBox.appendChild(line);
+      logBox.scrollTop = logBox.scrollHeight;
+    }
+    document.getElementById('clearConsole').onclick = () => (logBox.innerHTML = '');
+
+    // ---- Page 20: setInterval animation ----
+    const arena = document.getElementById('arena');
+    const box = document.getElementById('box');
+    const speedInput = document.getElementById('speed');
+    let timer = null;
+
+    function tick() {
+      const step = 6; // px per tick
+      let x = parseInt(box.style.left || '0', 10);
+      x += step;
+      const maxX = arena.clientWidth - box.offsetWidth;
+      if (x > maxX) x = 0;
+      box.style.left = x + 'px';
+    }
+
+    document.getElementById('start').onclick = () => {
+      if (timer) return;
+      const ms = Math.max(10, parseInt(speedInput.value || '60', 10));
+      timer = setInterval(tick, ms);
+      log('Animation started at ' + ms + ' ms/tick.');
+    };
+
+    document.getElementById('stop').onclick = () => {
+      clearInterval(timer);
+      timer = null;
+      log('Animation stopped.');
+    };
+
+    document.getElementById('reset').onclick = () => {
+      box.style.left = '0px';
+      log('Position reset to 0.');
+    };
+
+    // ---- Page 21: BOM ----
+    document.getElementById('winInfo').onclick = () => {
+      log('window.innerWidth × innerHeight = ' + window.innerWidth + ' × ' + window.innerHeight);
+    };
+
+    document.getElementById('screenInfo').onclick = () => {
+      log('screen.width × height = ' + screen.width + ' × ' + screen.height + ' (avail: ' + screen.availWidth + ' × ' + screen.availHeight + ')');
+    };
+
+    document.getElementById('historyInfo').onclick = () => {
+      log('history.length = ' + history.length + ' (number of entries in the session history list)');
+    };
+
+    document.getElementById('openWin').onclick = () => {
+      const w = window.open('about:blank', '_blank', 'width=400,height=300');
+      if (w) {
+        w.document.write('<!doctype html><title>New Window</title><h1 style=\"font-family:sans-serif\">Hello from window.open()</h1><p>This tab was opened by the demo.</p>');
+        log('Opened a new tab/window successfully.');
+      } else {
+        log('Popup was blocked by the browser.');
+      }
+    };
+
+    // ---- Page 22: Popups & Timers ----
+    document.getElementById('doAlert').onclick = () => {
+      alert('This is alert() — blocks until you click OK.');
+      log('alert() shown.');
+    };
+
+    document.getElementById('doConfirm').onclick = () => {
+      const ok = confirm('This is confirm() — OK or Cancel?');
+      log('confirm() returned: ' + ok);
+    };
+
+    document.getElementById('doPrompt').onclick = () => {
+      const name = prompt('This is prompt() — What is your name?');
+      log('prompt() returned: ' + JSON.stringify(name));
+    };
+
+    let intervalId = null;
+    document.getElementById('timeoutOnce').onclick = () => {
+      setTimeout(() => log('setTimeout fired once after 1s'), 1000);
+      log('Scheduled setTimeout for 1s.');
+    };
+
+    document.getElementById('intervalMany').onclick = () => {
+      if (intervalId) return;
+      intervalId = setInterval(() => log('setInterval tick…'), 700);
+      log('Started setInterval every 700ms.');
+    };
+
+    document.getElementById('stopInterval').onclick = () => {
+      clearInterval(intervalId);
+      intervalId = null;
+      log('Stopped setInterval.');
+    };
+  </script>
+</body>
+</html>
